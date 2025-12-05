@@ -358,7 +358,11 @@ export const EventForm = ({ event, onEventChange, onAddModule, onGoLive, isSubmi
 
       {/* Go Live Button */}
       <button
-        onClick={() => setShowPopup(true)}
+        onClick={() => {
+          // Pre-populate phone input with existing phone number from form
+          setPhoneInput(event.phoneNumber || '');
+          setShowPopup(true);
+        }}
         className="w-full px-6 py-4 bg-white/10 backdrop-blur-md rounded-2xl text-white border border-white/20 hover:bg-white/15 transition-all flex items-center justify-center gap-2 font-semibold shadow-lg"
         style={{
           boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
